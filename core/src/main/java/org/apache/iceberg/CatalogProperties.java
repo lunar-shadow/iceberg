@@ -173,4 +173,24 @@ public class CatalogProperties {
       "org.apache.iceberg.azure.keymanagement.AzureKeyManagementClient";
   public static final String ENCRYPTION_KMS_IMPL_GCP =
       "org.apache.iceberg.gcp.GcpKeyManagementClient";
+
+  /**
+   * Controls whether identifier resolution (namespace, table, view) should be case-insensitive.
+   *
+   * <p>When enabled, all identifiers are normalized to a consistent case before being sent to the
+   * catalog backend. This is useful for catalogs that preserve identifier case but may require
+   * case-insensitive lookups.
+   */
+  public static final String CASE_INSENSITIVE = "case-insensitive";
+
+  public static final boolean CASE_INSENSITIVE_DEFAULT = false;
+
+  /**
+   * Controls the case conversion type when {@link #CASE_INSENSITIVE} is enabled.
+   *
+   * <p>Supported values are {@code lower_case} (default) and {@code upper_case}.
+   */
+  public static final String CASE_INSENSITIVE_TYPE = "case-insensitive-type";
+
+  public static final String CASE_INSENSITIVE_TYPE_DEFAULT = "lower_case";
 }
